@@ -107,7 +107,7 @@ def AsistenciaEditar(request, item):
         return redirect('editasistencia')
     return render(request, 'actualizar.html', {'form': form, 'tipo_objeto': "asistencias"})
 
-
+#Turnos
 def TurnoLista(request):
     turno = Turno.objects.all()
     return render(request, "list_turnos.html", {'object_list': turno, 'tipo_objeto': "turno"})
@@ -117,7 +117,7 @@ def EditaTurno(request, item):
     form = TurnoForm(request.POST or None, instance=turnos)
     if form.is_valid():
         form.save()
-        return redirect('editaturno')
+        return redirect('turnos')
     return render(request, 'actualizar.html', {'form': form, 'tipo_objeto': "turnos"})
 
 
@@ -128,3 +128,25 @@ def EliminaTurno(request, item):
         turno.delete()
         return redirect('turnos')
     return render(request, 'list_turnos.html', {'object_list': turno, 'object': turnos, 'eliminar': 'True', 'tipo_objeto': "turno"})
+
+#Turnos
+
+def JornadaLista(request):
+    jornada = Jornada.objects.all()
+    return render(request, "list_jornadas.html", {'object_list': jornada, 'tipo_objeto': "jornada"})
+
+def EditaJornada(request, item):
+    jornadas = get_object_or_404(Jornada, pk=item)
+    form = JornadaForm(request.POST or None, instance=jornadas)
+    if form.is_valid():
+        form.save()
+        return redirect('jornadas')
+    return render(request, 'actualizar.html', {'form': form, 'tipo_objeto': "jornadas"})
+
+def EliminaJornada(request, item):
+    jornadas = get_object_or_404(Jornada, pk=item)
+    jornada = Jornada.objects.all()
+    if request.method == 'POST':
+        jornada.delete()
+        return redirect('jornadas')
+    return render(request, 'list_jornadas.html', {'object_list': jornada, 'object': jronadas, 'eliminar': 'True', 'tipo_objeto': "jornada"})

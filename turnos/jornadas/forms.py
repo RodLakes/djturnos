@@ -73,3 +73,36 @@ class TurnoForm(forms.ModelForm):
     class Meta:
         model = Turno
         fields = "__all__"
+
+class JornadaForm(forms.ModelForm):
+    class Meta:
+        model = Jornada
+        fields = "__all__"
+        widgets = {
+            
+            'id_jordana': forms.TextInput(attrs={
+                "type": "text",
+                "size": "5",
+                "placeholder": _("Identtificador"),
+            }),
+            'codigo': forms.TextInput(attrs={
+                "type": "text",
+                "size": "4",
+                "placeholder": _("JC"),
+            }),
+            'descripcion': forms.TextInput(attrs={
+                "type": "text",
+                "size": "25",
+                "placeholder": _("Descripcion"),
+            }),
+            'inicio': forms.TimeInput(attrs={
+                "class": "form-control",
+                "type" : "time",
+                "size": "10",
+            }),            
+            'termino': forms.TimeInput(attrs={
+                "class": "form-control",
+                "type" : "time",
+                "size": "10",
+            }),
+        }

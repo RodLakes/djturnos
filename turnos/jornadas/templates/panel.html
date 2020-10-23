@@ -7,16 +7,19 @@
   rel="stylesheet"
   id="bootstrap-css"
 />
+
 {% endblock extra_css %} 
 
 {% block content %}
-
-<div class="row">
-  <div class="col-md-6">
+<div class="container">
+  <div class="row">
+  <div class="col-md-12">
     <div class="panel panel-primary">
-      <div class="panel-heading">
+      <div class="panel-heading ">
         <h3 class="panel-title">
-          <span class="glyphicon glyphicon-bookmark"></span> Panel Principal
+          <a
+          href="/panel/"><span class="glyphicon glyphicon-bookmark"></span> Panel Principal
+        </a>
         </h3>
       </div>
       <div class="panel-body">
@@ -29,44 +32,46 @@
               ><span class="glyphicon glyphicon-list-alt"></span>
               <br />Empleados</a
             >
-            <a href="/asistencias/" class="btn btn-warning btn-lg" role="button"
+            <a href="/jornadas/" class="btn btn-warning btn-lg" role="button"
               ><span class="glyphicon glyphicon-bookmark"></span>
               <br />Jornadas</a
             >
-            <a href="#" class="btn btn-primary btn-lg" role="button"
-              ><span class="glyphicon glyphicon-signal"></span> <br />Reports</a
+            <a href="/asistencias/" class="btn btn-primary btn-lg" role="button"
+              ><span class="glyphicon glyphicon-signal"></span> <br />Asistencias</a
             >
             <a href="#" class="btn btn-primary btn-lg" role="button"
               ><span class="glyphicon glyphicon-comment"></span>
-              <br />Comments</a
+              <br />Opcion X</a
             >
           </div>
           <div class="col-xs-6 col-md-6">
             <a href="/regentidad/" class="btn btn-success btn-lg" role="button"
               ><span class="glyphicon glyphicon-user"></span> <br />Registro</a
             >
-            <a href="#" class="btn btn-info btn-lg" role="button"
+            <a href="/turnos/" class="btn btn-info btn-lg" role="button"
               ><span class="glyphicon glyphicon-file"></span> <br />Turnos</a
             >
             <a href="#" class="btn btn-primary btn-lg" role="button"
-              ><span class="glyphicon glyphicon-picture"></span> <br />Photos</a
+              ><span class="glyphicon glyphicon-picture"></span> <br />Opcion X</a
             >
             <a href="#" class="btn btn-primary btn-lg" role="button"
-              ><span class="glyphicon glyphicon-tag"></span> <br />Tags</a
+              ><span class="glyphicon glyphicon-tag"></span> <br />Opcion X</a
             >
           </div>
         </div>
+        <div class="col-xs-6 col-md-6">
         <a
-          href="http://www.jquery2dotnet.com/"
+          href="#"
           class="btn btn-success btn-lg btn-block"
           role="button"
-          ><span class="glyphicon glyphicon-globe"></span> Website</a
+          ><span class="glyphicon glyphicon-globe "></span> <br />Volver</a
         >
+      </div>
       </div>
     </div>
   </div>
 </div>
-
+</div>
 {% endblock %}
     {% block javascripts %}
     <!--  <script

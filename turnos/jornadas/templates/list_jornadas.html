@@ -8,27 +8,34 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Descripcion</th>
+                <th>Codigo </th>
+                <th>Jornada</th>
+                <th>Inicio</th>
+                <th>Termino</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
 
-            {% for turnos in object_list %}
+            {% for jornada in object_list %}
             <tr>
-                <td>{{ turnos.id_turno }}</td>
-                <td>{{ turnos.descripcion }}</td>
+                <td>{{ jornada.id_jordana }}</td>
+                <td>{{ jornada.codigo }}</td>
+                <td>{{ jornada.descripcion }}</td>
+                <td>{{ jornada.inicio }}</td>
+                <td>{{ jornada.termino }}</td>
                 <td>
-                    
-         
-                    <div class="btn-group">
-                        <a href="{% url 'editaturno' turnos.id_turno  %}" title="Editar" type="button"
-                        class="btn btn-primary">Editar </a>
+                    {% block hrefeditar %} 
 
+               
+                    <div class="btn-group">
+                        <a href="{% url 'editajornada'  jornada.id_jordana %}" title="Editar" type="button"
+                        class="btn btn-primary">Editar </a>
+                        {% endblock%}
                   
     
                   <div class="btn-group">
-                    <a href="#"  title="Eliminar" type="button" 
+                    <a href="{% url 'eliminajornada' jornada.id_jordana %}"  title="Eliminar" type="button" 
                                 class="btn btn-danger">Eliminiar </a>
  
                   </div>
@@ -44,7 +51,7 @@
 
     <script type="text/javascript">
         function eliminar() {
-            var x = confirm("Eliminar Turno?");
+            var x = confirm("Eliminar Asistencia?");
             if (x)
                 return true;
             else
