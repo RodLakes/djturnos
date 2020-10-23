@@ -20,7 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(rutasapp.urls)),
     url(r'^api-auth/', include('rest_framework.urls')),
-   # url(r'', include('jornadas.urls', namespace="jornads")),
     path('', include('jornadas.urls')),
 
 

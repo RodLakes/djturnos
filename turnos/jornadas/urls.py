@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.conf.urls import include, url
+from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -7,7 +8,8 @@ from jornadas import views
 
 
 urlpatterns = [
-#General    
+#General
+    path("",views.Panel, name="panel"),    
     url(r'^panel/$', views.Panel, name="panel"),
     url(r'^listarempleados/$', views.Empleados, name='empleados'),
     url(r'^asistencias/$', views.AsistenciaLista, name='asistencias'),
