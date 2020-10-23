@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+  <head>
+  {% load static %} 
+	{% load bootstrap4 %} 
+	{% bootstrap_css %}
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Jornada Turnos Beta - {% block title %}{% endblock %} | RodLakes
+    </title>
+    {% block css %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/estilos.css' %}"
+    />
+    <link
+      type="text/css"
+      href="{% static 'css/formularios.css'  %}"
+      rel="stylesheet"
+    />
+
+    {% endblock css %}
+  </head>
+
+  <body class="">
+    <div class="wrapper">
+      <div class="main-panel">
+        Hola Mundo
+        <div class="content">{% block content %}{% endblock content %}</div>
+      </div>
+    </div>
+
+    {% block javascripts %}
+    <!--  <script
+      type="text/javascript"
+      src="{% static 'jpegcam/webcam.js' %}"
+    ></script>
+-->
+
+    {% endblock javascripts %} 	{% bootstrap_javascript jquery='full' %}
+  </body>
+</html>

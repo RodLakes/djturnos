@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    {% load static %}
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+
+    <title>Sistema Turnos Beta</title>
+</head>
+
+<body>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Jornada</th>
+                <th>Turno</th>
+                <th>Ingreso</th>
+                <th>Salida</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for asistencia in object_list %}
+            <tr>
+                <td>{{ asistencia.id_entidad }}</td>
+                <td>{{ asistencia.id_jordana }}</td>
+                <td>{{ asistencia.id_turno }}</td>
+                <td>{{ asistencia.ingreso }}</td>
+                <td>{{ asistencia.salida }}</td>
+                <td>{{ asistencia.observacion }}</td>
+                <td>
+
+                    <form method="POST" action="eliminar/{{asistencia.id_asistencia}}">
+                        {% csrf_token %}
+
+                        <div class="btn-group">
+                            <a href="detalle/{{asistencia.id_asistencia}}" title="Ver" type="button"
+                                class="btn btn-success">Ver </a>
+                            <a href="editar/{{asistencia.id_asistencia}}" title="Editar" type="button"
+                                class="btn btn-primary">Editar </a>
+                            <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+                                Eliminar
+                            </button>
+                        </div>
+                    </form>
+
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+    {% bootstrap_javascript jquery='full' %}
+
+    <script type="text/javascript">
+        function eliminar() {
+            var x = confirm("Eliminar Asistencia?");
+            if (x)
+                return true;
+            else
+                return false;
+        }
+    </script>
+</body>
+
+</html>

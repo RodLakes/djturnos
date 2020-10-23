@@ -1,0 +1,33 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container bootdey">
+
+    <div class="row">
+        {% for empleados in object_list %}
+        <div class="col-md-2">
+            <div class="box box-widget widget-user">
+                <div class="widget-user-header bg-aqua">
+                    <h3 class="widget-user-username">{{ empleados.nombres }}</h3>
+                </div>
+                <div class="widget-user-image">
+                    <img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User Avatar">
+                </div>
+                <div class="box-footer">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="description-block">
+                                <h5 class="description-header">{{ empleados.telefono }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

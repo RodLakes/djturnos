@@ -1,0 +1,79 @@
+{% extends "./base.html" %} 
+{% load static %} 
+{% load i18n %} 
+{% block extra_css %}
+<link
+  href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  id="bootstrap-css"
+/>
+{% endblock extra_css %} 
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <span class="glyphicon glyphicon-bookmark"></span> Panel Principal
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-6 col-md-6">
+            <a
+              href="/listarempleados/"
+              class="btn btn-danger btn-lg"
+              role="button"
+              ><span class="glyphicon glyphicon-list-alt"></span>
+              <br />Empleados</a
+            >
+            <a href="/asistencias/" class="btn btn-warning btn-lg" role="button"
+              ><span class="glyphicon glyphicon-bookmark"></span>
+              <br />Jornadas</a
+            >
+            <a href="#" class="btn btn-primary btn-lg" role="button"
+              ><span class="glyphicon glyphicon-signal"></span> <br />Reports</a
+            >
+            <a href="#" class="btn btn-primary btn-lg" role="button"
+              ><span class="glyphicon glyphicon-comment"></span>
+              <br />Comments</a
+            >
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <a href="/regentidad/" class="btn btn-success btn-lg" role="button"
+              ><span class="glyphicon glyphicon-user"></span> <br />Registro</a
+            >
+            <a href="#" class="btn btn-info btn-lg" role="button"
+              ><span class="glyphicon glyphicon-file"></span> <br />Turnos</a
+            >
+            <a href="#" class="btn btn-primary btn-lg" role="button"
+              ><span class="glyphicon glyphicon-picture"></span> <br />Photos</a
+            >
+            <a href="#" class="btn btn-primary btn-lg" role="button"
+              ><span class="glyphicon glyphicon-tag"></span> <br />Tags</a
+            >
+          </div>
+        </div>
+        <a
+          href="http://www.jquery2dotnet.com/"
+          class="btn btn-success btn-lg btn-block"
+          role="button"
+          ><span class="glyphicon glyphicon-globe"></span> Website</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+    {% block javascripts %}
+    <!--  <script
+      type="text/javascript"
+      src="{% static 'jpegcam/webcam.js' %}"
+    ></script>
+-->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    {% endblock javascripts %}

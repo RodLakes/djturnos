@@ -1,0 +1,79 @@
+{% extends "./base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% block title %} Registrar Empleado{% endblock %}
+{% block extra_css %}
+ <!-- Primero, incluir la libreria de JpegCam -->
+ 
+{% endblock extra_css %}
+
+
+
+{% block content %}
+<div class="container">
+    <form action="{% url 'addentidad' %}" method="post">
+        <h1 class="text-center">Registrar Empleado </h1>
+        <div class="text-center">
+            {% if mjs %}
+            {{mjs|capfirst}}
+            {% endif %}
+        </div>
+        <div id="formulario">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </div>
+        <br /><br />
+       <div class="control-group">
+     <label for="foto" class="control-label">
+      Foto:
+     </label>
+     <div class="controls">
+      <input name="foto" type="file" value="" id="foto">
+      <a href="#takephoto" role="button" data-toggle="modal" class="btn btn-warning">Tomar Foto</a>
+     </div>
+    </div>
+   </div>
+   <div class="span3" id="fotoview">
+       </div>
+  </div>
+
+        <div class="bock-center text-center">
+            <center><input class="btn btn-primary" type="submit" value="Registrar" />
+                <a type="button" href="#" class="btn btn-primary btn-danger">Cancelar</a>
+            </center>
+        </div>
+
+        {% if error %}
+        <h2>{{error }}</h2>
+        {% endif %}
+    </form>
+</div>
+
+
+ <!-- Advanced Modal -->
+ <div id="takephoto" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Camara</h3>
+  </div>
+  <div class="modal-body">
+   <!-- Configure a few settings -->
+   <script language="JavaScript">
+    document.write( webcam.get_html(320, 240) );
+   </script>
+  </div>
+  <div class="modal-footer">
+   <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+   <button class="btn btn-primary" onClick="take_snapshot()" >Fotografíar</button>
+  </div>
+ </div>
+
+
+{% endblock %}
+
+  
+
+
+
+
